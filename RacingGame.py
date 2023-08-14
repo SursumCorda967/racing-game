@@ -41,6 +41,24 @@ def main():
 
     countdown()
 
+    tracks = [
+        "Track 1: A winding road through the mountains.",
+        "Track 2: A fast and furious race through the city.",
+        "Track 3: A challenging off-road course through the desert."
+    ]
+
+    cars = [
+        "Car 1: A powerful sports car.",
+        "Car 2: A sleek and stylish sports car.",
+        "Car 3: A rugged and durable off-road vehicle."
+    ]
+
+    power_ups = [
+        "Speed boost",
+        "Invulnerability",
+        "Oil slick"
+    ]
+
     while player_position < race_distance and opponent_position < race_distance:
         print(display_track(player_position, opponent_position, race_distance, player_name))
         user_input = get_user_input()
@@ -49,6 +67,18 @@ def main():
             print("Quitting the game...")
             break
         
+        # Choose a random track
+        track = random.choice(tracks)
+        print(f"You're racing on {track}!")
+
+        # Choose a random car
+        car = random.choice(cars)
+        print(f"You're driving a {car}!")
+
+        # Choose a random power-up
+        power_up = random.choice(power_ups)
+        print(f"You found a {power_up}!")
+
         # Add some randomness to the player's acceleration
         player_acceleration = random.randint(1, max_acceleration)
         # Make the opponent's speed increase with difficulty
