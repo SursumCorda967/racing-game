@@ -49,13 +49,16 @@ def main():
             print("Quitting the game...")
             break
         
+        # Add some randomness to the player's acceleration
         player_acceleration = random.randint(1, max_acceleration)
-        opponent_speed = random.randint(*opponent_speed_range)
+        # Make the opponent's speed increase with difficulty
+        opponent_speed = random.randint(*opponent_speed_range) + difficulty
         
         player_position += player_acceleration
         opponent_position += opponent_speed
         
-        os.system('clear')
+        # Add a delay to make the game more realistic
+        time.sleep(0.5)
 
     if player_position >= race_distance:
         print("Congratulations! You won!")
