@@ -1,0 +1,35 @@
+import random
+import time
+
+# Initialize game variables
+player_position = 0
+opponent_position = 0
+race_distance = 50
+
+# Function to display the race track
+def display_track():
+    print('-' * player_position + 'P' + '-' * (race_distance - player_position))
+    print('-' * opponent_position + 'O' + '-' * (race_distance - opponent_position))
+    print()
+
+# Main game loop
+while player_position < race_distance and opponent_position < race_distance:
+    display_track()
+    
+    # Get player's input
+    input("Press Enter to accelerate...")
+    player_acceleration = random.randint(1, 3)
+    
+    # Calculate new positions
+    player_position += player_acceleration
+    opponent_position += random.randint(1, 2)
+    
+    # Clear the console for the next iteration
+    print("\033[H\033[J")
+    
+# Display the final result
+display_track()
+if player_position >= race_distance:
+    print("Congratulations! You won!")
+else:
+    print("Sorry, you lost. Better luck next time!")
